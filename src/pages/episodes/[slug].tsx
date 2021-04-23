@@ -8,10 +8,10 @@ import { convertDurationToTimeString } from '../../utils/convertDurationToTimeSt
 
 import Image from 'next/image'
 import Link from 'next/link'
+import Head from 'next/head'
 
 import styles from '../../styles/episode.module.scss'
-import { useContext } from 'react'
-import { PlayerContext } from '../../contexts/PlayerContext'
+import { usePlayer } from '../../contexts/PlayerContext'
 
 type Episode = {
   id: string;
@@ -30,10 +30,14 @@ type EpisodeProps = {
 }
 
 export default function Episode({ episode }: EpisodeProps) {
-  const { play } = useContext(PlayerContext)
+  const { play } = usePlayer()
 
   return (
     <div className={styles.episode}>
+      <Head>
+        <title>{episode.title} | Podcastr</title>
+      </Head>
+
       <div className={styles.thumbnailContainer}>
         <Link href="/">
           <button type="button">
