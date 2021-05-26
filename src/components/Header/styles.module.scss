@@ -19,4 +19,26 @@
     margin-left: auto;
     text-transform: capitalize;
   }
+
+  @media(max-width: 1410px) {
+    height: 4rem;
+  }
+
+  @media (max-width:674px) {
+    img {
+      width: 120px;
+    }
+    p {
+      display: none;
+    }
+  }
+
+  @media (max-width: 360px) {
+    img {
+      width: 100px;
+    }
+    p {
+      display: none;
+    }
+  }
 }

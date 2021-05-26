@@ -3,7 +3,6 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { format, parseISO } from 'date-fns'
 import ptBR from 'date-fns/locale/pt-BR'
-
 import { api } from '../services/api'
 import { convertDurationToTimeString } from '../utils/convertDurationToTimeString'
 
@@ -45,7 +44,7 @@ export default function Home({ latestEpisodes, allEpisodes }: HomeProps) {
           {latestEpisodes.map((episode, index) => {
             return (
               <li key={episode.id}>
-                <div>
+                <div className={styles.imageArea}>
                   <Image
                     width={192}
                     height={192}
@@ -79,11 +78,11 @@ export default function Home({ latestEpisodes, allEpisodes }: HomeProps) {
         <table cellSpacing={0}>
           <thead>
             <tr>
-              <th></th>
+              <th className={styles.hiddenColumnTable}></th>
               <th>Podcast</th>
-              <th>Integrantes</th>
-              <th>Data</th>
-              <th>Duração</th>
+              <th className={styles.hiddenColumnTable}>Integrantes</th>
+              <th className={styles.hiddenColumnTableMobile}>Data</th>
+              <th className={styles.hiddenColumnTableMobile}>Duração</th>
               <th></th>
             </tr>
           </thead>
@@ -92,7 +91,7 @@ export default function Home({ latestEpisodes, allEpisodes }: HomeProps) {
             {allEpisodes.map((episode, index) => {
               return (
                 <tr key={episode.id}>
-                  <td style={{ width: 72 }}>
+                  <td style={{ width: 72 }} className={styles.hiddenColumnTable}>
                     <Image
                       width={120}
                       height={120}
@@ -108,9 +107,9 @@ export default function Home({ latestEpisodes, allEpisodes }: HomeProps) {
                     </Link>
                   </td>
 
-                  <td>{episode.members}</td>
-                  <td style={{ width: 100 }}>{episode.publishedAt}</td>
-                  <td>{episode.durationAsString}</td>
+                  <td className={styles.hiddenColumnTable}>{episode.members}</td>
+                  <td style={{ width: 100 }} className={styles.hiddenColumnTableMobile}>{episode.publishedAt}</td>
+                  <td className={styles.hiddenColumnTableMobile}>{episode.durationAsString}</td>
                   <td>
                     <button
                       type="button"
