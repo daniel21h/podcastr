@@ -68,8 +68,8 @@ export function Player() {
 
   return (
     <>
-      <div className={styles.playerModal} style={{ display: showModal }}>
-        <div className={styles.playerContainerModal}>
+      {/* <div className={styles.playerModal} style={{ display: showModal }}> */}
+      {/* <div className={styles.playerContainerModal}>
           <header>
             <img src="/playing.svg" alt="Tocando agora" />
             <strong>Tocando agora</strong>
@@ -172,7 +172,10 @@ export function Player() {
             </div>
           </footer>
         </div>
-      </div>
+      </div> */}
+
+
+
       <div className={styles.playerContainer}>
         <header>
           <img src="/playing.svg" alt="Tocando agora" />
